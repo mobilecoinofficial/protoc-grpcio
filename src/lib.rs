@@ -53,7 +53,7 @@ use failure::ResultExt;
 
 use tempfile::NamedTempFile;
 
-use protobuf::{compiler_plugin, descriptor};
+use protobuf::{compiler_plugin, descriptor, Message};
 use protobuf_codegen::Customize;
 use protoc::{DescriptorSetOutArgs, Protoc};
 
@@ -252,8 +252,8 @@ where
         .read_to_end(&mut serialized_descriptor_set)
         .context("failed to read descriptor set")?;
 
-    let descriptor_set =
-        protobuf::parse_from_bytes::<descriptor::FileDescriptorSet>(&serialized_descriptor_set)
+    let descriptor_set: descriptor::FileDescriptorSet =
+        Message::parse_from_bytes(&serialized_descriptor_set)
             .context("failed to parse descriptor set")?;
 
     let customize = customizations.unwrap_or_default();
