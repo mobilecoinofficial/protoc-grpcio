@@ -15,7 +15,7 @@ maintenance = { status = "actively-developed" }
 travis-ci = { repository = "mtp401/protoc-grpcio" }
 
 [dependencies]
-grpcio-compiler = { git = "https://github.com/mobilecoinofficial/grpc-rs", rev = "614ea0675e93d7062449efea50ac371d6d3852e4" }
+grpcio-compiler = { git = "https://github.com/mobilecoinofficial/grpc-rs", rev = "10ba9f8f4546916c7e7532c4d1c6cdcf5df62553" }
 
 failure = "0.1"
 tempfile = "3.1"
